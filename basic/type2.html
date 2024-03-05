@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 타입 변환
+      // string => number
+      // number(), parseInt(), parseFloat()
+      // nan : Not a Number (넘버가 아니다)
+
+      // number => string
+      // String(), toString()
+      console.log(typeof String(123));
+      let a = 456;
+      console.log("toString ", typeof a.toString);
+      let num1 = "40";
+      console.log(typeof num1);
+
+      console.log(typeof Number(num1));
+
+      console.log(typeof parseInt(num1));
+
+      // 4칙 연산중 더하기만 제외하고 나머지는 스트링 형식으로 입력되어도 계산을 해준다
+      // 더하기를 안해주는 이유는 연결의 의미가 더 먼저 오기에 40 +5는 45 가 아닌 405 가 나오게 된다
+
+      console.log(num1 + 5);
+      console.log(num1 - 5);
+      console.log(num1 / 5);
+      console.log(num1 * 5);
+      console.log("Number(true)", Number(true)); // 1
+      console.log("Number(true)", Number(false)); // 0
+    </script>
+  </body>
+</html>
