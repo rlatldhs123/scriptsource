@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 배열
+      const cars = ["sAAB", "Volvo", "BMW"];
+      const cars1 = new Array("sAAB", "Volvo", "BMW");
+
+      const cars2 = [];
+      // 배열 메소드
+
+      //   1. push(): 배열 요소 추가(맨 뒤에 요소를 추가한다)
+      cars2.push("Saab");
+      cars2.push("Saaasdf");
+      cars2.push("sadfe");
+      cars2.push("sadfasdf");
+
+      // 2.조회
+      for (let index = 0; index < cars.length; index++) {
+        const element = cars[index];
+        console.log(element);
+      }
+      console.log("====================================");
+
+      for (let i in cars2) {
+        console.log(i);
+        console.log(cars2[i]);
+      }
+
+      console.log("====================================");
+
+      // 자바에서 향상 된 for 문과 비슷하다
+      for (const car of cars1) {
+        console.log(car);
+      }
+
+      console.log("====================================");
+
+      cars.forEach((car) => {
+        console.log(car);
+      });
+      console.log("====================================");
+      console.log(cars[1]);
+    </script>
+  </body>
+</html>

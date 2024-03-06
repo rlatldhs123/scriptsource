@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 조건문
+      // true : 0 제외 숫자, "문자",[](배열), {}(객체)
+      // false : 0, "", null, wndefind, NaN
+
+      // 현재 날짜와 시간을 알아내는 객체
+      const date = new Date();
+      console.log(date);
+
+      // 시간만 추출하고 싶음
+      const hour = date.getHours();
+
+      if (hour < 12) {
+        console.log("오전");
+      } else {
+        console.log("오후");
+      }
+
+      // 사용자한테 숫자를 입력 받은 후 숫자가 양수인지 음수인지 구별하는 프로그램
+
+      //   let num = prompt("숫자 입력"); // 프롬프트 () 안에 입력한 값은 어떤 것을 입력 하면 될지 알려줌
+
+      let num = parseInt(prompt("숫자 입력"));
+
+      console.log(typeof num); //{사용자로 부터 입력 받는 모든 값은 스트링이다 }
+      console.log(isNaN(num));
+
+      if (num < 0) {
+        console.log("음수");
+      } else {
+        console.log("양수");
+      }
+
+      // 함수
+
+      //    1) alert() : 경고창을 띄우는 함수
+      //    2) prompt : 사용자한테 입력 받는 함수
+      //    3) isNaN : Not a number [숫자인지 아닌지 물어보는 함수]
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="space()">행성 추가</button>
+    <script>
+      // arrow funtion
+
+      const greeting = (name) => console.log(`Hell0!!!${name}`); // 실행할 구문이 하나여서 중괄호 생락이 가능함
+
+      greeting("홍길동");
+
+      const planetkor = ["수성", "금성", "지구", "화성", "목성", "토성", "천왕성", "해왕성"];
+
+      // forEach()
+
+      planetkor.forEach((element) => console.log(element));
+
+      const array = [];
+
+      planetkor.forEach((element) => array.push(element));
+      console.log(array);
+
+      let space1 = undefined;
+      function space() {
+        space1 = prompt("All");
+        document.write("행성: " + space1);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const str = "Hello Javascript";
+      // const str = new String("Hello Javascript");
+
+      document.write("특정 위치 문자 반환", str.charAt(4), "<br>"); // o
+      document.write("문자 위치 반환", str.indexOf("a"), "<br>"); // 7
+      document.write("문자 변경", str.replace("J", "j"), "<br>");
+      document.write("문자 변경", str.substring(6), "<br>");
+      document.write("문자 변경", str.substring(6, 10), "<br>");
+      document.write("문자 변경", str.slice(6, 10), "<br>");
+      document.write("문자 공백 제거", "   hello    ".trim(), "<br>");
+      document.write("대문자로 변경", str.toUpperCase(), "<br>");
+      document.write("소문자로 변경", str.toLowerCase(), "<br>");
+
+      // 소문자로 이름을 입력 받기 abcd
+      // 이름은 대문자로 변경후 출력
+
+      let name = prompt("영문이름을 소문자로 입력해주세요");
+      document.write("이름 :", name.toUpperCase(), "<br>");
+
+      // 전화번호 입력받기 : 000-0000-0000
+      // 전화번호는 화면에 가운데자리만 마스킹 처리 후 보여주기
+
+      let ph = prompt("전화번호를 입력해주세요");
+
+      document.write("전화번호 :", ph.replace(ph.substring(4, 8), "####"), "<br>");
+    </script>
+  </body>
+</html>
