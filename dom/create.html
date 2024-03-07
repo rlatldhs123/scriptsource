@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test">
+      <p>반갑습니다</p>
+    </div>
+    <script>
+      // 2. 요소 생성
+      // <h1>Hello dom</h1>
+
+      const header = document.createElement("h1"); // 태그 선택
+      const content = document.createTextNode("Hello dom"); // 요소내 정보 입력
+
+      //   header.appendChild(content); // h1 요소와 텍스트 노드 연결
+
+      //   document.body.appendChild(header); // body 에 자식요소로 추가 해야함  appendChild() 항상 마지막 자식으로 들어간다 Ex) 본 코드에서는 바디에 마지막 자식으로 들어간다
+
+      let output = "<ul><li>javascript></li>";
+      output += "<li>html</li>";
+      output += "<li>css</li>";
+      output += "<li>jquery</li>";
+      output += "</ul>";
+
+      //   document.body.innerHTML = output; // 해당 구문으로 문자열로 만든 요소를 넣어준다 하지만  inner 이기에 처음에 만든 요소는 덮어씌어진다
+
+      // insertAdjancentHTML(위치,삽입할 요소)
+      // beforeend : 현재 태그 요소의 마지막 자식으로
+      // beforebegin : 현재 태그 요소의 이전 형제 요소로 삽입
+      // afterbegin :현재 태그 요소의 첫번째 자식으로 삽입
+      // afterend : 현재 태그 요소의 다음 형제 요소로 삽입
+
+      const p = "<p>안녕하세요</p>";
+
+      document.getElementById("test").insertAdjacentHTML("afterend", p);
+      // <p>반갑습니다</p> 해당 구문을 늦게 추가 했음에도 닫는태그 바로 앞에 넣는  beforeend 로 인해 바디의 자식 맨 앞에 오게 된다
+    </script>
+  </body>
+</html>

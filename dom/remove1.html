@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 name="head" class="head" id="head">Header 1</h1>
+    <h2>Header 2</h2>
+    <script>
+      // 요소 삭제
+
+      //   document.querySelector("h1").remove(); // 요소 삭제 하는 법
+      //   document.body.removeChild(document.querySelector("h1")); // 바디에 자식  h1 삭제 실행 구문
+
+      // 요소 속성 삭제
+
+      document.querySelector("h1").removeAttribute("name"); // name 의 요소가 삭제 됨
+
+      // 텍스트 노드 삭제
+      document.querySelector("h1").innerText = ""; // 덮어씌어지는 느낌이라 빈 공백을 넣어주면 된다
+    </script>
+  </body>
+</html>

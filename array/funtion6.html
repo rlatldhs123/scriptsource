@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .alert-danger {
+        height: 60px;
+        color: black;
+        border: 1px solid hotpink;
+        border-radius: 10px;
+        background-color: rgba(255, 105, 180, 0.37);
+        line-height: 60px;
+        padding-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div><button type="button" onclick="myFuntion()">버튼 1</button></div>
+    <div class="alert alert-danger"><span>10</span>초 이내 구매시 사은품 증정!!</div>
+    <script>
+      // 내장 함수 - alert(), pompt(), Number(), parseInt(), isNaN()
+
+      // URI : Identifier = URL + 자원식별
+      // URL : Location
+      // 주소 + 데이터를 같이 보낸다 ==> get 방식
+
+      // encodeUPI() : 영문 숫자 일부 기호 제외하고 다 바꿔버린다
+      // encodeUPIComponent() : 영문, 숫자 제외하고 다 바꿔버린다
+
+      document.write(encodeURI("https://localhost:8080/basic/info.html?name=홍길동&age=15;"), "<br>");
+      document.write(encodeURIComponent("https://localhost:8080/basic/info.html?name=홍길동&age=15;"), "<br>");
+
+      document.write(decodeURI("https://localhost:8080/basic/info.html?name=%ED%99%8D%EA%B8%B8%EB%8F%99&age=15;"), "<br>");
+      document.write(
+        decodeURIComponent("https%3A%2F%2Flocalhost%3A8080%2Fbasic%2Finfo.html%3Fname%3D%ED%99%8D%EA%B8%B8%EB%8F%99%26age%3D15%3B"),
+        "<br>"
+      );
+
+      // confirm() : 확인 버튼과 취소 버튼이 뜬다
+      // 확인을 누를시 true
+      // 취소를 누를시 false 가 들어온다
+
+      // let result = confirm("버튼 클릭하셨네요");
+      // console.log(result);
+
+      // 코드실행 => 순차(위 -> 아래) 동기식 실행
+      // 순차가 아닌 순서대로 진행되지 않는 방식 을 비동기식이라고 부른다 *********** 중요***********
+
+      // 3000 밀리세컨드 만큼이 지난다음 실행이 된다
+      //
+      // setTimeout(함수, 숫자)
+
+      //   console.log("시작");
+      //   setTimeout(() => {
+      //     console.log("3초가 지났습니다");
+      //   }, 3000);
+      //   console.log("마무리");
+
+      setTimeout(() => {
+        // 광고창 닫기
+        document.querySelector(".alert").style.display = "none"; // 광고창 닫는 구문
+      }, 10000);
+
+      setInterval(() => {
+        console.log("안녕");
+      }, 2000); // 2초 간격으로 실행 된다
+    </script>
+  </body>
+</html>

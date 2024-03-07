@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Avoidance Game</title>
+    <style>
+      #box {
+        width: 20px;
+        height: 20px;
+        background-color: pink;
+        position: absolute;
+        transition: transform 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <a href="../dom/left-arrow.png"></a>
+    </div>
+
+    <script>
+      const box = document.getElementById("box");
+      const boxSize = 50;
+      let dx = 1; // 이동 방향 설정
+      let dy = 1;
+
+      // 마우스가 이동할 때마다 박스 위치 갱신
+      document.addEventListener("mousemove", (e) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        // 박스의 중심 좌표
+        const boxX = box.offsetLeft + boxSize / 2;
+        const boxY = box.offsetTop + boxSize / 2;
+
+        // 마우스와 박스의 거리 계산
+        const distX = mouseX - boxX;
+        const distY = mouseY - boxY;
+        const distance = Math.sqrt(distX * distX + distY * distY);
+
+        // 마우스와 박스가 가까워질수록 박스가 이동
+        if (distance < 200) {
+          // 박스의 새 위치 계산
+          const newX = box.offsetLeft + (distX / distance) * 200;
+          const newY = box.offsetTop + (distY / distance) * 200;
+
+          // 박스가 화면을 벗어나지 않도록 조정
+          const maxX = window.innerWidth - boxSize;
+          const maxY = window.innerHeight - boxSize;
+          const clampedX = Math.min(Math.max(newX, 0), maxX);
+          const clampedY = Math.min(Math.max(newY, 0), maxY);
+
+          // 박스 위치 업데이트
+          box.style.left = `${clampedX}px`;
+          box.style.top = `${clampedY}px`;
+        }
+      });
+
+      // 첫 번째 구석에서 반대 방향으로 이동
+      function moveBox() {
+        const maxX = window.innerWidth - boxSize;
+        const maxY = window.innerHeight - boxSize;
+
+        // 현재 박스의 위치
+        let boxX = box.offsetLeft;
+        let boxY = box.offsetTop;
+
+        // 구석에 도달하면 반대 방향으로 이동
+        if (boxX <= 0 || boxX >= maxX) {
+          dx *= -1;
+        }
+        if (boxY <= 0 || boxY >= maxY) {
+          dy *= -1;
+        }
+
+        // 새로운 박스의 위치 계산
+        boxX += dx;
+        boxY += dy;
+
+        // 박스 위치 업데이트
+        box.style.transform = `translate(${boxX}px, ${boxY}px)`;
+
+        // 일정 시간마다 박스 이동
+        requestAnimationFrame(moveBox);
+      }
+
+      // 게임 시작
+      moveBox();
+
+      // 클릭 시 게임 종료
+      box.addEventListener("click", () => {
+        alert("게임 종료!");
+      });
+    </script>
+  </body>
+</html>

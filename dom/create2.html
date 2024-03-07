@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>Sipmle HTML</h1>
+    </header>
+    <div id="content">
+      <p>This isa <i>simple</i>HTML file</p>
+    </div>
+    <div class="collout">
+      <p>This is s fancy as we'll get!</p>
+    </div>
+
+    <script>
+      const p1 = "<p> i was created dynamically";
+      const p2 = "<p> 피의 두번쨰 태그 넣기 예제 못봄 <p>";
+
+      const content = document.querySelector("#content p");
+      content.insertAdjacentHTML("afterbegin", p1);
+      content.insertAdjacentHTML("beforeend", p2);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header1">Header1</h1>
+    <h2 id="header2">header2</h2>
+    <p id="textContent">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab earum tempora voluptate quos, odio nostrum placeat debitis, magnam veritatis magni
+      inventore? Modi pariatur porro asperiores iure ducimus maxime doloribus vel.
+    </p>
+    <script>
+      // DOM
+      // 1. 요소 찾기 : 스타일 변경, 텍스트 변경, 이벤트, 요소제거
+      const element = document.getElementById("header1");
+      console.log(element);
+      const element1 = document.getElementById("header2");
+      console.log(element1);
+
+      // 텍스트 노드의 값만 확인 하고 싶다면
+      console.log(element.textContent);
+
+      // 텍스트 노드의 값 변경
+
+      //   element.innerText = "getElementById"; // innertext 는 텍스트로 인식하기에 태그처리가 불가
+      element.textContent = "getElementById"; // innertext 와 똑같은 역할을 함
+      //   element.innerHTML = "<i>getElementById</i>"; // innerhtml 은 태그처리 가능
+
+      // p 요소 찾은 후에 p 요소에 가지고 있는 내용 가지고 오기
+
+      // p요소 찾기
+      const p = document.getElementById("textContent");
+
+      // 요소 내용 출력
+      console.log(p.innerText);
+
+      console.log(p.textContent); // p.textContent or p/innernthl
+
+      //   요소 찾을떄
+      //    document.getElementById,document.querySelector(),   / document.querySelectorAll(){요소들 찾을떄}
+
+      //   document.querySelector()는  css 선택자 모두 가능하다
+      element = document.querySelector("#herader1");
+      element = document.querySelector("#herader2");
+      p = document.querySelector("#text");
+    </script>
+  </body>
+</html>

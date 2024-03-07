@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // funtion() 작성
+
+      // 1. funtion 키워드 사용 방식으로  add 함수 정의
+
+      // 변수
+
+      //   let num;
+
+      //   function add(x, y) {
+      //     return x + y;
+      //   }
+
+      //   let result = add(5, 8);
+      //   document.write("a+b = " + result + "<br>");
+
+      //   // 2 1번을 함수 표현식으로 바꿔서 작성
+
+      //   const add2 = function (x, y) {
+      //     return x + y;
+      //   };
+      //   result = add2(4, 5);
+      //   document.write("a+b = " + result + "<br>");
+
+      //   // 3. 1번을 화살표 함수로 바꿔서 작성
+
+      //   const add3 = (a, b) => a + b;
+
+      //   result = add3(9, 8);
+      //   document.write("a+b = " + result + "<br>");
+
+      //   // 4. 1~10 까지 숫자를 더해서 결과를 리턴하는 함수 작성
+      //   //   for (let index = 1; index < 11; index++) {
+      //   //     let num2;
+      //   //     num2 = index;
+      //   //     num2++;
+      //   //   }
+
+      //   const add4 = () => {
+      //     let num2;
+      //     for (let index = 1; index < 11; index++) {
+      //       num2 = +index;
+      //     }
+      //     return num2;
+      //   };
+      //   s;
+
+      // 5. 3의 배수를 찾는 입력되는 숫자가 3의 배수이면 "박수" 출력, 3의 배수가 아니면 "통과" 라는 문자가 출력
+
+      //   let number = prompt("숫자 입력");
+
+      //   const mult = (number) => {
+      //     if (number % 3 === 0) {
+      //       alert("박수");
+      //     } else {
+      //       alert("통과");
+      //     }
+      //   };
+
+      //   mult(parseInt(number)); // 받고 나서 전달 해야한다
+
+      // 6. 입력되는 숫자가 3의 배수이면 박수  9 의 배수이면 박수2번 출력 아니면 통과 함수명 둘다 다르게
+
+      //   let number2 = prompt("숫자 입력");
+
+      //   const mult2 = (number2) => {
+      //     if (number2 % 9 === 0) {
+      //       document.write("박수 박수");
+      //     }
+      //     if (number2 % 3 === 0) {
+      //       document.write("박수");
+      //     } else {
+      //       document.write("통과");
+      //     }
+      //   };
+      // 두 개 과목의 점수를 받아서 합이 120 이상이면 합격(단 한 과목이  40 점미만이면 과락으로 불합격)
+
+      const narac = () => {
+        let kor = parseInt(prompt("국어 점수 입력"));
+        let eng = parseInt(prompt("영어 점수 입력"));
+
+        if (kor + eng >= 120) {
+          document.write("합격");
+        }
+        if (kor + eng < 40) {
+          document.write("불합격");
+        }
+      };
+      narac();
+
+      // 3의 배수에서 박수를 치는게 아니라 끝자리가 369로 끝나는 숫자라면  박수 아니면 통과
+    </script>
+  </body>
+</html>
