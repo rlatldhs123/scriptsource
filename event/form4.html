@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div * {
+        padding: 10px;
+        margin: 10px;
+      }
+      [readonly] {
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>숫자 맞추기 게임</h3>
+    <p>
+      이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다.<br />
+      숫자는 1~100 사이에 있습니다.
+    </p>
+    <div>
+      <label
+        >숫자
+        <input type="text" name="num" id="num" size="5" />
+        <button type="button">확인</button>
+      </label>
+    </div>
+    <div>
+      <label
+        >추측 횟수
+        <input type="text" name="count" id="count" size="5" readonly />
+      </label>
+    </div>
+    <div>
+      <label
+        >힌트
+        <input type="text" name="hint" id="hint" readonly />
+      </label>
+    </div>
+    <script>
+      const random = Math.floor(Math.random() * 100) + 1; // 임의의 숫자
+      // 추측 횟수 변수 선언
+
+      let nGuess = 0;
+
+      document.querySelector("button").addEventListener("click", (e) => {
+        let user = parseInt(document.querySelector("#num").value);
+
+        nGuess++;
+
+        let result = "";
+        if (user == random) {
+          result = "정답입니다";
+          e.target.disabled = "true";
+        } else if (user < random) {
+          result = "더 큰수를 입력해주세요";
+        } else if (user > random) {
+          result = "더 작은 수를 입력해주세요";
+        }
+        document.querySelector("#hint").value = result;
+        document.querySelector("#count").value = nGuess;
+      });
+
+      //   const button = document.querySelector("[type='button']");
+
+      //   button.addEventListener("click", () => {
+      //     let user = document.querySelector("#num").value;
+      //     let count = document.querySelector("#count");
+      //     let countvalue = parseInt(count.value);
+
+      //     let random = Math.floor(Math.random() * 100) + 1;
+      //     if (random > user) {
+      //       alert("숫자가 더 큽니다");
+      //       document.querySelector("#num").focus(); // 포커스 시키기
+      //       countvalue += 1;
+      //       count.value = countvalue;
+      //       return;
+      //     } else if (random < user) {
+      //       alert("숫자가 더 작습니다");
+      //       document.querySelector("#num").focus(); // 포커스 시키기
+      //       countvalue += 1;
+
+      //       return;
+      //     } else if (random == user) {
+      //       alert("정답입니다");
+      //     }
+      //   });
+    </script>
+  </body>
+</html>

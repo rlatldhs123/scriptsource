@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <label for="username">이름</label>
+        <input type="text" name="username" id="username" />
+      </div>
+      <div>
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="age">나이</label>
+        <input type="text" name="age" id="age" />
+      </div>
+      <div>
+        <button type="submit">전송</button>
+      </div>
+    </form>
+
+    <script>
+      // form submit 이 되면
+      // input 요소의 값들이 비어 있는지 확인하기
+      // 비어 있다면 alert (이름을, 비밀번호를,나이를 입력해주세요 띄우기)
+      // submit 구문의 기능 막기
+      // 밸류가 비어있다면 알림 띄이ㅜ기
+
+      //   const username = document.getElementById("username").value;
+      //   const password = document.getElementById("password").value;
+      //   const age = document.getElementById("age").value;
+
+      //   const button = document.querySelector("button");
+      //   button.addEventListener("click", () => {
+      //     button.preventDefault(); // 기능 막기
+      //     if (username === "") {
+      //       alert("이름을 넣어주세요");
+      //     }
+      //     if (password === "") {
+      //       alert("비밀번호을 넣어주세요");
+      //     }
+      //     if (age === "") {
+      //       alert("나이를 넣어주세요");
+      //     }
+      //   });
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // 유효성 검증 : 값이 비어있는지 안비어 있는지
+        // 결국에 사용자의 입력값은DB 에저장이 되어야 하는 값이므로 확인을 하는 구문이 꼭 들어가야함
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+        const age = document.getElementById("age");
+
+        if (username.value == "") {
+          alert("이름을 입력해주세요");
+          username.focus();
+          return;
+        } else if (password.value == "") {
+          alert("비밀번호를 입력해주세요");
+          password.focus();
+          return;
+          // 나이부분이 숫자가 아니라면 나이를 확인해주세요
+        } else if (age.value == "" || isNaN(age.value)) {
+          alert("나이를 확인해주세요");
+          //   age.focus();
+          age.select();
+          return; // 파란색으로 전체선택을해서 사용자가 바로 지우거나 수정 할 수 있다
+        }
+
+        // 폼을 다시 전송하는 코드가 필요함 (실제로는 이렇게 해야 완성이다)
+        // 위 코드로 못가게 분명히 막았으나 전송은 강제로 되어 버렸다
+        // 여기서 나오는게 리턴 코드이다 리턴을 주면 더이상의 코드실행을 막기에 form.submit(); 코드가 실행되지 않는다
+
+        form.submit();
+      });
+    </script>
+  </body>
+</html>

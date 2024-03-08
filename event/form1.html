@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <input type="text" name="text1" id="text1" />
+      <input type="submit" value="전송" />
+    </form>
+    <p id="result"></p>
+
+    <script>
+      //   // 전송을 누르면 화면에 출력 되게
+
+      //   // form 의 submit 버튼을 사용시 자동으로 폼 전송이 일어남
+
+      //   /// form 의 액션에 적혀있는 곳으로 전송이 일어남 액션을 쓰지 않았다면 주소창으로 간다 ?=형태로
+
+      //   // post 방식은 무조건 액션에 주소가 들어와야 한다
+
+      //   // a , submit 태그에 기능이 있는 경우 ==> 기능 중지  form.preventDefault();
+
+      //   const form = document.querySelector("form");
+      //   const text1 = document.getElementById("text1");
+
+      //   form.addEventListener("submit", (e) => {
+      //     e.preventDefault();
+
+      //     // text1 입력값 가져오기
+      //     // 가져와서 p 요소 안에 보여주기
+      //     document.querySelector("#result").innerText = text1.value;
+      //     text1.value = "";
+      //   });
+
+      // 텍스트 입력이 끝난후 포커스를 다음요소로 이동할 때 입력 값을 p 요소 안에 보여주기
+
+      const form = document.querySelector("form");
+      const text1 = document.getElementById("text1");
+
+      text1.addEventListener("change", () => {
+        e.preventDefault();
+        document.querySelector("#result").innerText = text1.value;
+      });
+    </script>
+  </body>
+</html>

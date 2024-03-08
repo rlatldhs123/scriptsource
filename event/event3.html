@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <form action="" method="get">
+        <input type="radio" name="color" id="" value="green" />녹색 <input type="radio" name="color" id="" value="blue" />파랑
+      </form>
+      <script>
+        // 라디오를 클릭하면 해당 색상을 body 배경색으로 변경
+
+        const colors = document.querySelectorAll("input[type=radio]");
+
+        // button[0].addEventListener("click", () => {
+        //   document.body.style.backgroundColor = "green";
+        //   document.body.style.color = "white";
+        // });
+        // button[1].addEventListener("click", () => {
+        //   document.body.style.backgroundColor = "blue";
+        //   document.body.style.color = "white";
+        // });
+
+        colors.forEach((color) => {
+          color.addEventListener("click", (e) => {
+            // console.log(e.target.vlaue);
+            document.body.style.backgroundColor = e.target.value; // 이미 문자열이기에 추가적임 " "는 필요 없다
+          });
+        });
+
+        // 노드 형태로 들어오기에 forEach 사용 가능 만약 바디에 벨류가 있다면
+        // e.target.value 로 할 수 있다
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 5000px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 스크롤 이벤트
+
+      window.addEventListener("scroll", () => {
+        // console.log(window.scrollY); // 스크롤  y축 좌표를 찍어준다
+
+        window.scrollTo(0, 2000); // 2000 픽셀만큼 강제로 이동하는 개념 (x축 ,y축)
+
+        window.scrollBy(0, 500);
+        console.log(window.scrollY); // 현재 스크롤 위치에서 시작해서 움직이기
+      });
+    </script>
+  </body>
+</html>
