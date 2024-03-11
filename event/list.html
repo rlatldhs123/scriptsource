@@ -53,6 +53,20 @@
 
       console.log(products[1]); //  { id: 1, price: 50000, title: "Spring Shu " }
       console.log(products[1].title); // 타이틀을 가져온다
+
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, idx) => {
+        console.log(card, " ", idx);
+
+        console.log(card.querySelector("h5").innerHTML);
+        console.log(card.querySelector("span").innerHTML);
+
+        card.querySelector("h5").innerHTML = products[idx].title;
+        card.querySelector("p > span").innerHTML = products[idx].price;
+      });
+
+      // produsct 값 화면 출력
+      // 디자인 영역 가져오기 => products  값 삽입
     </script>
   </body>
 </html>

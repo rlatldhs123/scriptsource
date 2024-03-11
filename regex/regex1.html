@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h4>정규 표현식과 일치하는 문자열 리턴</h4>
+      <p id="exec"></p>
+    </div>
+    <div>
+      <h4>정규 표현식과 일치하는 문자열이 있으면 true, 없으면 flase</h4>
+      <p id="test"></p>
+    </div>
+    <div>
+      <h4>정규 표현식과 일치하는 문자열 리턴</h4>
+      <p id="match"></p>
+    </div>
+    <div>
+      <h4>정규 표현식과 일치하는 문자열 리턴</h4>
+      <p id="search"></p>
+    </div>
+    <script>
+      // 정규포현식 - 자바, 파이썬, 자바 스크립트 동일함 => 표현 방식
+      // 검색에서 aa 문자가 오고 그 다음 문자는 숫자, 문자, 특수문자, 상관없이 가능하고,대문자로 시작하는
+      // 이름을 입력받았을때 한글이냐?
+      // 아이디를 입력 시 영어 대소문자 와 숫자, 특수문자는 $,! 만 허용하고 싶을떄
+
+      // 플래그
+      // g : global 전역검색 , i 대소문자 구별 없이, m : 다중행 검색, u : 유니코드 패턴, y : 문자열의 현재위치 부터 검색
+
+      //^ 와 m 플래그 : ^ : 시작하는이라는 의미가 있다, 중간에 들어오는 것은 안찾아준다
+      // $ : 끝나는 것을 찾아주는 의미가 있다
+      // . : 모든 문자 띄어쓰기 사이띄기 숫자 문자 특수문자 공백 전부 찾아서 매핑해준다
+      // \. : 마침표로써의 점을 찾아줘 ( .은 의미가 있기 때문)
+      // [rem] == [r|e|m] : r or e or m 을 찾아줘{대소문자 구분}
+      // [A-Z] : 모든 대문자를 찾아줘
+      // [a-z] : 모든 소문자를 찾아줘
+      // [^A-Z] 대괄호안 꺾쇠는 포함하지않는에 의미가 있다
+
+      // 수량과 관련된 정규식
+      // * : 0 ~ 무한대
+      // + : 1 ~ 무한대 ex a+) a가 최소 한번은 있고 연속적인  a전부 찾아달라
+      // ? : 0 ~ 1 ex a?b) a는 없어도되고 b가 나오는 문자 찾아줘
+      // {최소값,최대값} : a{1}, a{1,5} a 가최소 1번은나오고 5개까지 나오는 것을 찾아달라 a{3,} <<<< 이런식으로 비워주면 최소 3개 최대 무한대의 의미를 가진다
+
+      // 기호
+
+      // \w == [a-zA-Z0-9], \W == [^a-zA-Z0-9] 대문자 W는 제외한의 의미가 있다
+      // \s == [공백,엔터,tab], \S == [^공백,엔터,tab] 제외한
+      // \d == [0-9], \D == [^0-9]
+
+      // 스크립트에서 정규식 사용하기
+      //exec(), text(),match(), search(),m replace(), split()
+      const regEx = /Ajax/; // 패턴생성
+
+      const content = "JavaScript jQuery Ajax JavaScript";
+      console.log(regEx.exec(content));
+
+      //   document.querySelector("#exec").innerHTML = regEx.ecec(content);
+
+      //   //match() search() 는 스트링 메소드이다
+
+      //   console.log(regEx.match(content));
+
+      //   document.querySelector("#match").innerHTML = regEx.match(content);
+
+      //   console.log(regEx.search(content));
+
+      //   document.querySelector("#search").innerHTML = regEx.search(content);
+      // 정규식에서의 매칭은 적극적 일치 방식(매칭 되는 것 모두)
+      // ? 를 붙여 소극적 일치 방식으로 바꿔준다
+      // <i>.*?<\/i> : i 태그와 그 안의 문자열 찾기
+      //<i>greedy</i> and <i>lazy</i> matching.
+
+      // (): 그룹화 ()안에 캡처링 개념이 추가됨 자기가 찾은 패턴을 기억하고 있다
+      //
+
+      const content2 = "John Smith";
+      const regEx2 = /(\w+)\s(\w+)/;
+      console.log(content2.match(regEx2));
+
+      console.log(content2.replace(regEx2, "$2,$1")); // 찾은 문자열에 패턴을
+
+      const ko = "kokokoko";
+      const koooo = "kooookoooo";
+      console.log(ko.match(/ko+/));
+      console.log(koooo.match(/ko+/));
+      console.log(ko.match(/(ko)+/));
+      console.log(ko.match(/(ko)/g));
+      console.log(koooo.match(/(ko)+/));
+    </script>
+  </body>
+</html>

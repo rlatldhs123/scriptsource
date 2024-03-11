@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        margin: 10px;
+        position: relative;
+        display: none;
+      }
+      button {
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+      }
+      .alert-box span {
+        position: absolute;
+        top: 1px;
+        right: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="alert-box">
+      <span class="close">X</span>
+    </div>
+    <button class="btn1">버튼 1</button>
+    <button class="btn2">버튼 2</button>
+
+    <script>
+      const show = document.querySelector(".btn1");
+      const alert = document.querySelector(".alert-box");
+      // console.log(alert.firstChild);
+      // console.log(alert.firstElementChild);
+      // console.log(alert.innerText);
+      // console.log(alert.innerHTML);
+      // console.log(alert.innerContent);
+
+      // show.addEventListener("click", () => {
+      //   alert.style.display = "block";
+      //   alert.firstChild.textContent = "아이디를 입력해주세요";
+      // });
+
+      const btn2 = document.querySelector(".btn2");
+      // btn2.addEventListener("click", () => {
+      //   alert.style.display = "block";
+
+      //   alert.firstChild.textContent = "비밀번호를 입력해주세요";
+      // });
+      // document.querySelector(".close").addEventListener("click", () => {
+      //   alert.style.display = "none";
+      // });
+
+      const notification = (state, msg) => {
+        alert.style.display = state;
+        alert.firstChild.textContent = msg;
+        if (msg != undefined) {
+          alert.firstChild.textContent;
+        }
+      };
+      show.addEventListener("click", () => notification("block", "아이디를 입력해주세요"));
+      btn2.addEventListener("click", () => notification("block", "비밀번호를 입력해주세요"));
+      document.querySelector(".close").addEventListener("click", () => notification("none"));
+
+      // 버튼 클릭시 알림창을 보여주지만 버튼1은 알림창 내용을 아이디를 입력해주세요 라는 메시지로 바꾸기
+      // 버튼 2번 클릭시 비밀번호를 입력해주세요 라는 메시지를 띄운다
+    </script>
+  </body>
+</html>

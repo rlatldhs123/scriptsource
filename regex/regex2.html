@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text-danger {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloremque eos quis mollitia. Omnis, laborum iusto. Perferendis, rem
+      consequatur debitis vitae enim, itaque eos saepe minus deserunt, quos sequi consectetur.<br />
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex illo voluptates minus veritatis itaque laborum sequi consequuntur fugit reiciendis
+      error commodi assumenda accusantium culpa aspernatur, labore est corrupti maxime fugiat!<br />
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt in aliquid deleniti fugiat recusandae quo corrupti fugit facilis asperiores
+      animi officiis repellendus reiciendis blanditiis non placeat necessitatibus, dignissimos amet? Temporibus?
+    </p>
+    <p id="match"></p>
+    <form action="" method="get">
+      <div>
+        <label for="userid">아이디</label>
+        <input type="text" name="userid" id="userid" />
+        <small class="text-danger"></small>
+      </div>
+      <div>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" />
+        <small class="text-danger"></small>
+      </div>
+      <div>
+        <button type="submit">전송</button>
+      </div>
+    </form>
+    <script>
+      // ipsum 이라는 문자를 찾고싶음
+      // 원본 문자열 가져오기
+
+      const p = document.querySelector("p").innerText;
+      // 패턴 생성
+      const regEx = /ipsum/g; // 플래그 g 를 써서 전역 검색을 함
+      document.querySelector("#match").innerText = p.match(regEx);
+
+      // 폼이 서브밋이 일어나면
+      // 이름 값을 가져오고 싶음
+      // 유효성을 검증을 할건데
+      // 최소이름은 2~ 5 자리 여야 하고 한글이입력 되어야 한다
+
+      // id 입력 유효성 검증 하고싶음
+      // 아이디가 영문자,숫자 조합으로 6 ~ 12 자리를 허용
+      // 시작은 영문자로 해야 한다거나 조합이 그냥 z1130ion 에 형태더라도 상관이 없다면
+      const id = //
+        document.querySelector("form").addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.querySelector("#name");
+          const regEx = /^[가-힣]{2,5}$/;
+          if (!regEx.test(name.value)) {
+            //   alert("이름을 확인해주세요");
+            //   document.querySelector(".text-danger").innerHTML = "이름을 확인해주세요";
+            name.nextElementSibling.innerHTML = "😡이름을 확인해주세요😡";
+          }
+        });
+    </script>
+  </body>
+</html>

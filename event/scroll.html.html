@@ -16,10 +16,21 @@
       }
       span {
         cursor: pointer;
-        /* 손모양 나오게 하는 코드 */
+      }
+      .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+
+        /* 포지션 픽스드로 상단 고정 */
       }
       body {
         height: 4000px;
+        top: auto;
+      }
+      .navbar-brand {
+        font-size: 45px;
+        transition: all 1s;
       }
     </style>
   </head>
@@ -66,8 +77,17 @@
           document.body.style.backgroundColor = "white";
         }
       });
+      // 스크롤바 500px 내리면 로고 폰트 줄이기
 
-      widow.addEventListener("scroll", () => {});
+      const navbar = document.querySelector(".navbar-brand");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 500) {
+          navbar.style.fontSize = "30px";
+        } else {
+          navbar.style.fontSize = "45px";
+        }
+      });
     </script>
   </body>
 </html>
