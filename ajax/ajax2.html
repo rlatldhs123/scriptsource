@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+        background-color: lightblue;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+      }
+      .container li {
+        list-style: none;
+        width: 25%;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      .container li:hover {
+        list-style: none;
+        width: 25%;
+        margin: 0 10px;
+        cursor: pointer;
+        background-color: rgb(171, 107, 230);
+        transition: 0.6s;
+        border-radius: 30px;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="container">
+      <li>메뉴 1</li>
+      <li>메뉴 2</li>
+      <li>메뉴 3</li>
+      <li>메뉴 4</li>
+    </ul>
+    <div class="result"></div>
+    <script>
+      // 메뉴1 클릭 : 서버로부터 데이터 가져오기
+      // ok : 200 에러코드
+      // not found : 404 에러코드
+      // 서버 오류 : 500번대
+
+      document.querySelector(".container li:first-child").addEventListener("click", () => {
+        fetch("https://rlatldhs123.github.io/data.txt")
+          .then((response) => {
+            if (!response.ok) throw new Error("주소를 확인 하세요");
+            return response.text();
+          })
+          .then((data) => {
+            console.log(data);
+
+            // 받은 데이터를 리절트에 보여주기
+
+            document.querySelector(".result").innerHTML = data;
+          })
+          .catch((error) => console.log(error));
+      });
+    </script>
+  </body>
+</html>
