@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h3>상품 목록</h3>
+      <div class="row mb-2">
+        <div class="col-sm-4">
+          <img src="https://placehold.co/600x600" class="card-img-top" alt="..." />
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">가격 : <span>70000</span></p>
+        </div>
+        <div class="col-sm-4">
+          <img src="https://placehold.co/600x600" class="card-img-top" alt="..." />
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">가격 : <span>70000</span></p>
+        </div>
+        <div class="col-sm-4">
+          <img src="https://placehold.co/600x600" class="card-img-top" alt="..." />
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">가격 : <span>70000</span></p>
+        </div>
+      </div>
+
+      <button class="btn btn-danger" id="more">더보기...</button>
+    </div>
+
+    <script>
+      // 배열, 객체
+
+      const products = [
+        { id: 0, price: 70000, title: "Blossom Drress" },
+        { id: 1, price: 50000, title: "Spring Shu " },
+        { id: 2, price: 60000, title: "balck Drress" },
+      ];
+      //   const obj = {key:value,key:value,....}
+
+      // console.log(products[1]); //  { id: 1, price: 50000, title: "Spring Shu " }
+      // console.log(products[1].title); // 타이틀을 가져온다
+
+      const cards = document.querySelectorAll(".container .row:nth-child(2) .col-sm-4");
+      cards.forEach((col, idx) => {
+        col.querySelector("h5").innerHTML = products[idx].title;
+        col.querySelector("p > span").innerHTML = products[idx].price;
+      });
+      // 더보기 버튼 클릭시 두번쨰 줄 상품 가져오기
+      // 더보기 버튼 두번 클릭시 disabled 시켜야 함 또는 안보이게
+      let count = 0;
+
+      document.querySelector("#more").addEventListener("click", () => {
+        const links = ["https://rlatldhs123.github.io/more1.json", "https://rlatldhs123.github.io/more2.json"];
+
+        // 버튼 횟수 지정할 변수 생성
+
+        count++;
+        if (count == 1) {
+          fetch(links[0])
+            .then((res) => {
+              if (!res.ok) throw new Error();
+              {
+                return res.json();
+              }
+            })
+            .then((data) => {
+              console.log(data);
+              let out = "";
+              data.forEach((item) => {
+                out += `<div class="col-sm-4">`;
+                out += ` <img src="https://placehold.co/600x600" class="card-img-top" alt="..." />`;
+                out += ` <h5 class="card-title">${item.title}</h5>`;
+                out += ` <p class="card-text">가격 : <span>${item.price}</span></p>`;
+                out += `</div>`;
+              });
+              document.querySelector(".row.mb-2").insertAdjacentHTML("beforeend", out);
+            })
+
+            .catch(() => {
+              alert("데이터를 불러오지 못했습니다");
+            });
+        }
+
+        if (count == 2) {
+          fetch(links[1])
+            .then((res) => {
+              if (!res.ok) throw new Error();
+              {
+                return res.json();
+              }
+            })
+            .then((data) => {
+              console.log(data);
+              let out = "";
+              data.forEach((item) => {
+                out += `<div class="col-sm-4">`;
+                out += ` <img src="https://placehold.co/600x600" class="card-img-top" alt="..." />`;
+                out += ` <h5 class="card-title">${item.title}</h5>`;
+                out += ` <p class="card-text">가격 : <span>${item.price}</span></p>`;
+                out += `</div>`;
+              });
+              document.querySelector(".row.mb-2").insertAdjacentHTML("beforeend", out);
+            })
+
+            .catch(() => {
+              alert("데이터를 불러오지 못했습니다");
+            });
+
+          document.querySelector("#more").disabled = true;
+        }
+      });
+
+      // produsct 값 화면 출력
+      // 디자인 영역 가져오기 => products  값 삽입
+      // 오픈 API  => 사용법에 따라사용 데이터 형태는  제각각 다를 수 있다
+      //(xls,csv,json,xml) 만 제공
+      // xls, csv, json (파일일떄): db 삽입가능
+      // jdbc 프로그램 작성 가능
+      // 실시간 요청 : fetch 데이터 가져온 후 서비스 프로그램 작성 가능
+    </script>
+  </body>
+</html>
